@@ -23,7 +23,6 @@ steps:
     projects: '**/*.csproj'
     feedsToUse: config
     nugetConfigPath: NuGet.config    # Relative to root of the repository
-    externalFeedCredentials: FabVeg (2)
 
 - task: DotNetCoreCLI@2
   inputs:
