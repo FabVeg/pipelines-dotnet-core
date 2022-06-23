@@ -7,8 +7,15 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+
+
 # do this before your build tasks
 steps:
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
