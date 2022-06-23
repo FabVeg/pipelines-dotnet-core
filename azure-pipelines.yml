@@ -15,7 +15,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
-    packDestination: '$(Build.ArtifactStagingDirectory)'
+    versioningScheme: 'off'
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
@@ -23,7 +23,7 @@ steps:
     projects: '**/*.csproj'
     feedsToUse: config
     nugetConfigPath: NuGet.config    # Relative to root of the repository
-    externalFeedCredentials: <Name of the NuGet service connection>
+    externalFeedCredentials: $(Build.ArtifactStagingDirectory)
 
 - task: DotNetCoreCLI@2
   inputs:
