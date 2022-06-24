@@ -11,6 +11,13 @@ variables:
 
 # do this before your build tasks
 steps:
+
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'MyGet feed'
+
+- task: NuGetToolInstaller@1
+
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
