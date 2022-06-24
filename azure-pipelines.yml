@@ -21,9 +21,9 @@ steps:
   inputs:
     command: restore
     projects: '**/*.csproj'
-    feedsToUse: config
-    nugetConfigPath: NuGet.config    # Relative to root of the repository
-    externalFeedCredentials: Myget feed
+    feedsToUse: 'config'
+    nugetConfigPath: 'Deployment/NuGet.config'
+    externalFeedCredentials: 'Myget feed'
 
 - task: DotNetCoreCLI@2
   inputs:
