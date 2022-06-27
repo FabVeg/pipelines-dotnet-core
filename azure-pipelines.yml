@@ -18,6 +18,12 @@ steps:
 
 - task: NuGetToolInstaller@1
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
+  displayName: 'dotnet build $(buildConfiguration)'
+
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
@@ -31,10 +37,4 @@ steps:
     feedsToUse: 'config'
     nugetConfigPath: 'Deployment/NuGet.config'
     externalFeedCredentials: 'Myget feed'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    arguments: '--configuration $(buildConfiguration)'
-  displayName: 'dotnet build $(buildConfiguration)'
 
