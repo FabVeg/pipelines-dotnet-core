@@ -35,6 +35,6 @@ steps:
     command: 'restore' 
     projects: '**/*.csproj'
     feedsToUse: 'config'
-    nugetConfigPath: 'NuGet.config'
+    nugetConfigPath: './nuGet.config'
     externalFeedCredentials: 'Myget feed'
     includeNuGetOrg: true
