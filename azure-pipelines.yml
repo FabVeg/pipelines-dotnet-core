@@ -29,12 +29,11 @@ steps:
     command: 'pack'
     packagesToPack: '**/*.csproj'
     versioningScheme: 'off'
-- task: DotNetCoreCLI@2
-  displayName: Restore
+    nugetConfigPath: 'nuget.config'
+- task: NuGetCommand@2
   inputs:
-    command: 'restore' 
-    projects: '**/*.csproj'
-    feedsToUse: 'config'
-    nugetConfigPath: './nuget.config'
-    externalFeedCredentials: 'Myget feed'
-    includeNuGetOrg: true
+    command: 'restore'
+    feedsToUse: 'select'
+    vstsFeed: 'FabVeg/pipelines-dotnet-core'
+    includeNuGetOrg: false
+    restoreSolution: '**/*.sln'
