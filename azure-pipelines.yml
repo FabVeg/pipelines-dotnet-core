@@ -32,8 +32,9 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
-    command: restore
+    command: 'restore' 
     projects: '**/*.csproj'
     feedsToUse: 'config'
     nugetConfigPath: 'NuGet.config'
     externalFeedCredentials: 'Myget feed'
+    includeNuGetOrg: true
