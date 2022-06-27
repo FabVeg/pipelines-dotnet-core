@@ -37,4 +37,3 @@ steps:
     feedsToUse: 'config'
     nugetConfigPath: 'NuGet.config'
     externalFeedCredentials: 'Myget feed'
-
