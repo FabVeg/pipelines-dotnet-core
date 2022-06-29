@@ -7,7 +7,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '6.x'
-  wwwrootDir: 'wwwroot/'
+  wwwrootDir: '**/wwwroot'
 
 
 
