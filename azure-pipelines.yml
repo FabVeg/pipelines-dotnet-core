@@ -18,12 +18,24 @@ steps:
 
 - task: NuGetToolInstaller@1
 
+#build app
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
   displayName: 'dotnet build $(buildConfiguration)'
 
+
+
+# test
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+
+#pack and restore
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
