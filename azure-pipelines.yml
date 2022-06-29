@@ -35,6 +35,15 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 
+# do this after your tests have run
+- script: dotnet test <test-project> --logger trx
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
+
+
 #pack and restore
 - task: NuGetCommand@2
   inputs:
