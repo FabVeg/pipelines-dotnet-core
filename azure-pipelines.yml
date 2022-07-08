@@ -12,10 +12,10 @@ variables:
 
 # do this before your build tasks
 steps:
-
-- task: NuGetAuthenticate@0
+- task: NuGetAuthenticate@1
   inputs:
-    nuGetServiceConnections: 'MyGet feed'
+    nuGetServiceConnections: 'NuGet feed'
+    forceReinstallCredentialProvider: true
 
 - task: NuGetToolInstaller@1
 
